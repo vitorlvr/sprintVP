@@ -1,11 +1,10 @@
-import { StatusBar } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './src/components/login';
+import Home from './src/pages/home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login />
+      <Home />
     </View>
   );
 }
@@ -14,7 +13,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  }
 });
