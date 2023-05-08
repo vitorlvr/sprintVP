@@ -1,8 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, StatusBar } from 'react-native';
 import React from 'react';
 
-import { Feather } from '@expo/vector-icons';
-
 const StatusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;
 
 export default function Header({name}) {
@@ -17,8 +15,9 @@ export default function Header({name}) {
 
 const styles = StyleSheet.create({
     container: {
+      zIndex: 1,
       flexDirection: 'row',
-      backgroundColor: '#409',
+      backgroundColor: '#460fc9',
       paddingTop: StatusBarHeight,
       paddingStart: 16,
       paddingEnd: 16,

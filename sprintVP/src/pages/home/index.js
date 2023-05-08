@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 
 // Importação dos componentes
 import Header from '../../components/header';
-import Balance from '../../components/balance';
 import Actions from '../../components/actions';
+import Footer from '../../components/footer';
 
 // Função da página Home
 export default function Home({ navigation }) {
