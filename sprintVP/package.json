@@ -17,6 +17,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.71.7",
     "react-native-google-signin": "^2.1.1",
+    "react-native-payment-icons": "^1.0.11",
     "react-native-web": "~0.18.10"
   },
   "devDependencies": {

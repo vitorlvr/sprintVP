@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
       width: '100%',
       textAlign: 'center',
       color: '#fff',
-      fontSize: 15,
+      fontSize: 16,
       fontWeight: 'bold',
+      fontfamily: 'sans-serif',
     }
 });
