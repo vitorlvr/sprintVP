@@ -2,7 +2,9 @@
   "expo": {
     "name": "sprintVP",
     "slug": "sprintVP",
-    "plugins": ["@react-native-google-signin/google-signin"],
+    "plugins": [
+      "@react-native-google-signin/google-signin"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,18 +18,17 @@
       "**/*"
     ],
     "ios": {
-      "config": {
-        "googleSignIn": {
-          "reservedClientId": "com.googleusercontent.apps.387349559231-pjghhdcch39efmphnn58d5pp5lddudfr"
-        }
-      },
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Autenticação sprintVP com TouchId ou FaceID"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.sprintVP"
     },
     "web": {
       "favicon": "./assets/favicon.png"

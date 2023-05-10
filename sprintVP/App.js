@@ -1,32 +1,41 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { useFonts, Roboto_400Regular, Roboto_700Bold} from '@expo-google-fonts/roboto'
+import React from 'react';
+import { View } from 'react-native';
+import { 
+  useFonts,
+  Montserrat_400Regular,
+  Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 import AuthScreen from './src/pages/acesso/AuthScreen';
+import Home from './src/pages/home/home';
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontCarregada] = useFonts({
-    "RobotoRegular": Roboto_400Regular,
-    "RobotoBold": Roboto_700Bold,
+    "MontserratRegular": Montserrat_400Regular,
+    "MontserratBold": Montserrat_700Bold,
   });
   
   if(!fontCarregada) {
-    return < View/>
+    return (
+      <View />
+    );
   }
 
 
   return (
-    <View style={styles.container}>
-      <AuthScreen />
-    </View> 
+   <NavigationContainer>
+    <Stack.Navigator screenOptions={{
+    headerShown: false
+    }}>
+      <Stack.Screen name='AuthScreen' component={AuthScreen} />
+      <Stack.Screen name='Home' component={Home} />
+    </Stack.Navigator>
+   </NavigationContainer>
   );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+};
