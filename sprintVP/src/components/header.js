@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import React from 'react';
 
 const StatusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64;

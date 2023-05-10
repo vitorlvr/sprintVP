@@ -1,21 +1,13 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Actions() {
   return (
-    <View
-      style={styles.container}
-    >
+    <ScrollView contentContainerStyle={styles.container} horizontal
+    showsHorizontalScrollIndicator={false}>
       <TouchableOpacity style={styles.actionButton}>
         <View style={styles.areaButton}>
           <Ionicons name="car-sharp" size={45} color="#460fc9" />
@@ -52,24 +44,17 @@ export default function Actions() {
         </View>
         <Text style={styles.labelButton}>Condomínio e Aluguel</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexWrap: 'wrap',
     flexDirection: 'row',
-    alignContent: 'space-between',
-    justifyContent: 'center',
-    marginBottom: 350,
-    marginTop: -34,
-    paddingStart: 14,
-    paddingEnd: 14,
+    justifyContent: 'flex-start',
+    marginBottom: 16,
+    paddingHorizontal: 14,
     paddingTop: -24,
-    maxHeight: 300,
-    maxWidth: 400,
-    zIndex: 99,
   },
   actionButton: {
     alignItems: "center",
@@ -94,7 +79,7 @@ const styles = StyleSheet.create({
   labelButton: {
     marginTop: 4,
     fontSize: 12,
-    fontfamily: 'sans-serif',
+    fontFamily: 'sans-serif',
     textAlign: "center",
     fontWeight: "bold",
     color: "#460fc9",
