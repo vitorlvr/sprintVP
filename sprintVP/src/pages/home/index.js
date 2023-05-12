@@ -13,13 +13,13 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
 
-      <Header/>
+      <Header />
 
-      <SideMenu/>
+      <SideMenu />
 
-      <Actions navigation={navigation}/>
+      <Actions navigation={navigation} />
 
-      <Footer/>
+      <Footer />
 
     </View>
   );
@@ -28,6 +28,6 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f3f6f9',
   }
 });
