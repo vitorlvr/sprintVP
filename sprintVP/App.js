@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { 
   useFonts,
   Montserrat_400Regular,
@@ -28,6 +28,7 @@ export default function App() {
 
 
   return (
+
    <NavigationContainer>
     <Stack.Navigator screenOptions={{
     headerShown: false
