@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import Header from '../../components/header';
 import Actions from '../../components/actions';
 import Footer from '../../components/footer';
-import SideMenu from '../../components/pushMenu';
 
 // Função da página Home
 export default function Home({ navigation }) {
@@ -15,7 +14,6 @@ export default function Home({ navigation }) {
 
       <Header />
 
-      <SideMenu />
 
       <Actions navigation={navigation} />
 

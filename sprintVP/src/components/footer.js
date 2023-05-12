@@ -1,7 +1,6 @@
 import { View, StyleSheet, Dimensions } from 'react-native';
 import React from 'react';
 
-import { PaymentIcon } from 'react-native-payment-icons';
 
 export default function Footer() {
   const windowWidth = Dimensions.get('window').width;
