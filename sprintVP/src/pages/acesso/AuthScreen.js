@@ -24,7 +24,7 @@ const AuthScreen = ({ navigation }) => {
       fallbackLabel: 'Inserir Senha',
     });
     auth.then(result => {
-      navigation.navigate('Home');
+      navigation.navigate('Routes');
       setIsAuthenticated(result.success);
     }
     );
