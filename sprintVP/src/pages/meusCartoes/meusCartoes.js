@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
 import Header from "./components/Header";
+import ItemClicavel from "./components/ItemClicavel";
 
 
 export default function Cartoes() {
@@ -12,6 +13,7 @@ export default function Cartoes() {
 
             <View style={styles.main}>
                 <Text style={styles.titulo}>Qual cartão de crédito você prefere usar?</Text>
+                <ItemClicavel />
             </View>
                                               
         </View>           
