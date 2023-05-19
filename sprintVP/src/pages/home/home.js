@@ -1,10 +1,9 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, FlatList} from 'react-native';
 
 // Importação dos componentes
 import Header from '../../components/header';
 import Actions from '../../components/actions';
-import Footer from '../../components/footer';
+import Balance from '../../components/balance';
 
 // Função da página Home
 export default function Home({ navigation }) {
@@ -14,10 +13,12 @@ export default function Home({ navigation }) {
 
       <Header />
 
-
       <Actions navigation={navigation} />
 
-      <Footer />
+      <Text style={styles.title}>Últimas movimentações:</Text>
+
+      <Balance />
+
 
     </View>
   );
@@ -27,5 +28,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f3f6f9',
+  },
+  title: {
+    paddingVertical: 50,
+    paddingTop: 5,
+    fontWeight: 'bold',
+    paddingStart: 20,
+    paddingEnd: 20,    
   }
 });
