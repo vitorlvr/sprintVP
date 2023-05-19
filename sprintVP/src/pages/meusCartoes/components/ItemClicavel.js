@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TextInput
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axios from 'axios';
@@ -36,7 +30,6 @@ const ItemClicavel = () => {
     } catch (error) {
       console.log('Error adding new Card', error);
     }
-    onRefresh();
   }
 
   
