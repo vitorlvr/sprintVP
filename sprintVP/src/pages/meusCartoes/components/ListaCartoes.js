@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ItemClicavel from './ItemClicavel';
-import axios from 'axios';
+import getCards from './GetCards';
+
 
 export default function ListaCartoes() {
-    const [exibirCampos, setExibirCampos] = useState(false);
     const [cards, setCards] = useState('');
     async function fetchCards() {
-        try {
-          const response = await axios.get('http://172.20.10.7:3000/cards');
-          setCards(response.data);
-        } catch (error) {
+        const cardsData = await getCards();
+        if (cardsData == null) {
           console.log('Error fetching cards', error);
+        } else {
+          setCards(cardsData);
         }
-      }
+    }
 
       useEffect(() => {
         fetchCards();
@@ -41,7 +40,7 @@ export default function ListaCartoes() {
         );
       };
       
-
+      const [exibirCampos, setExibirCampos] = useState(false);
       const handleCliqueVisa = () => {
         setExibirCampos(!exibirCampos);
       };
