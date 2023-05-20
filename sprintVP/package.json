@@ -29,7 +29,9 @@
     "react-native-gesture-handler": "^2.9.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.20.0",
-    "react-native-svg": "^12.1.1"
+    "react-native-svg": "^12.1.1",
+    "@rneui/themed": "*",
+    "@rneui/base": "4.0.0-rc.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
