@@ -19,7 +19,6 @@ export default function Home({ navigation }) {
 
       <Balance />
 
-
     </View>
   );
 }
@@ -36,4 +35,4 @@ const styles = StyleSheet.create({
     paddingStart: 20,
     paddingEnd: 20,    
   }
-});
+})

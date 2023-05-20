@@ -1,7 +1,7 @@
-import { View, StyleSheet, Text, StatusBar, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, StatusBar, TouchableOpacity, Image} from "react-native";
 import { Feather } from '@expo/vector-icons'
 
-//import LogoVp.png from '../../assets/LogoVp.png'
+import LogoVp from '../../assets/logoVp.png'
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
 
@@ -9,6 +9,7 @@ export default function Header({ name }) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
+                <Image source={LogoVp.png} style={styles.logo}/>
                 <Text style={styles.username}>Bem vindo, {"name"}!</Text>
                 <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser}>
                     <Feather name='user' size={30} color='#fff'/>

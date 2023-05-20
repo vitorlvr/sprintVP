@@ -1,10 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { 
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_700Bold,
-} from '@expo-google-fonts/montserrat'
+import { View } from 'react-native';
+import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -19,8 +15,8 @@ export default function App() {
     "MontserratRegular": Montserrat_400Regular,
     "MontserratBold": Montserrat_700Bold,
   });
-  
-  if(!fontCarregada) {
+
+  if (!fontCarregada) {
     return (
       <View />
     );
@@ -29,16 +25,16 @@ export default function App() {
 
   return (
 
-   <NavigationContainer>
-   
-    <Stack.Navigator screenOptions={{
-    headerShown: false
-    }}>
-      <Stack.Screen name='AuthScreen' component={AuthScreen} />
-      <Stack.Screen name='Routes' component={Routes} />
-    </Stack.Navigator>
+    <NavigationContainer>
 
-   </NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen name='AuthScreen' component={AuthScreen} />
+        <Stack.Screen name='Routes' component={Routes} />
+      </Stack.Navigator>
+
+    </NavigationContainer>
   );
 
-};
+}

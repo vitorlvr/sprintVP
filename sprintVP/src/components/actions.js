@@ -6,55 +6,61 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Actions() {
   return (
-    <ScrollView contentContainerStyle={styles.container} horizontal
-    showsHorizontalScrollIndicator={false}>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <Ionicons name="car-sharp" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Multas, IPVA e outros</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <MaterialCommunityIcons name="barcode-scan" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Boletos Diversos</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <Ionicons name="water-sharp" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Água, Luz e Internet</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <Ionicons name="school" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Escola e Faculdade</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <FontAwesome name="bank" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Impostos de Secretaria de Fazenda</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.actionButton}>
-        <View style={styles.areaButton}>
-          <MaterialCommunityIcons name="home-city" size={45} color="#460fc9" />
-        </View>
-        <Text style={styles.labelButton}>Condomínio e Aluguel</Text>
-      </TouchableOpacity>
-    </ScrollView>
+    <View style={styles.container}>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <Ionicons name="car-sharp" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Multas, IPVA e outros</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <MaterialCommunityIcons name="barcode-scan" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Boletos Diversos</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <Ionicons name="water-sharp" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Água, Luz e Internet</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <Ionicons name="school" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Escola e Faculdade</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.row}>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <FontAwesome name="bank" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Impostos de Secretaria de Fazenda</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.actionButton}>
+          <View style={styles.areaButton}>
+            <MaterialCommunityIcons name="home-city" size={45} color="#460fc9" />
+          </View>
+          <Text style={styles.labelButton}>Condomínio e Aluguel</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     marginBottom: 16,
     paddingHorizontal: 14,
     paddingTop: -24,
+    marginTop: -50
   },
   actionButton: {
     alignItems: "center",
@@ -85,4 +91,4 @@ const styles = StyleSheet.create({
     color: "#460fc9",
     paddingBottom: 5,
   }
-});
+})

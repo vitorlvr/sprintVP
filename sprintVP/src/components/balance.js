@@ -39,8 +39,9 @@ const styles = StyleSheet.create({
     zIndex: 99,
   },
   itemTitle: {
-    fontSize: 20,
-    color: "#dadada",
+    fontSize: 15,
+    color: "black",
+    fontWeight: "bold",
   },
   content: {
     flexDirection: "row",
