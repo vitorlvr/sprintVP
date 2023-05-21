@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, FlatList} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
 // Importação dos componentes
 import Header from '../../components/header';

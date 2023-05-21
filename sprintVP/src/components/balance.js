@@ -8,7 +8,7 @@ export default function Balance({ saldo, gastos }) {
         <Text style={styles.itemTitle}>Saldo</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.balance}>{saldo}</Text>
+          <Text style={styles.balance}>2000{saldo}</Text>
         </View>
       </View>
 
@@ -16,7 +16,7 @@ export default function Balance({ saldo, gastos }) {
         <Text style={styles.itemTitle}>Gastos</Text>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>R$</Text>
-          <Text style={styles.expenses}>-{gastos}</Text>
+          <Text style={styles.expenses}>-500{gastos}</Text>
         </View>
       </View>
     </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   currencySymbol: {
-    color: "#dadada",
+    color: "black",
     marginRight: 6,
   },
   balance: {

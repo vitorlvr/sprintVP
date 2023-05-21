@@ -10,13 +10,13 @@ export default function Actions() {
       <View style={styles.row}>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <Ionicons name="car-sharp" size={45} color="#460fc9" />
+            <Ionicons name="car-sharp" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Multas, IPVA e outros</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <MaterialCommunityIcons name="barcode-scan" size={45} color="#460fc9" />
+            <MaterialCommunityIcons name="barcode-scan" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Boletos Diversos</Text>
         </TouchableOpacity>
@@ -24,13 +24,13 @@ export default function Actions() {
       <View style={styles.row}>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <Ionicons name="water-sharp" size={45} color="#460fc9" />
+            <Ionicons name="water-sharp" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Água, Luz e Internet</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <Ionicons name="school" size={45} color="#460fc9" />
+            <Ionicons name="school" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Escola e Faculdade</Text>
         </TouchableOpacity>
@@ -38,13 +38,13 @@ export default function Actions() {
       <View style={styles.row}>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <FontAwesome name="bank" size={45} color="#460fc9" />
+            <FontAwesome name="bank" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Impostos de Secretaria de Fazenda</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionButton}>
           <View style={styles.areaButton}>
-            <MaterialCommunityIcons name="home-city" size={45} color="#460fc9" />
+            <MaterialCommunityIcons name="home-city" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Condomínio e Aluguel</Text>
         </TouchableOpacity>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif',
     textAlign: "center",
     fontWeight: "bold",
-    color: "#460fc9",
+    color: 'rgb(66, 0, 127)',
     paddingBottom: 5,
   }
 })
