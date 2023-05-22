@@ -93,7 +93,8 @@ const ItemClicavel = () => {
           
         </ScrollView>
       )}
-        <ListaCartoes />
+          <ListaCartoes />
+        
     </View>
   );
 };

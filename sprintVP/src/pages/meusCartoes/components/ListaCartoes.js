@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getCards from './GetCards';
 
@@ -47,7 +47,6 @@ export default function ListaCartoes() {
 
     return(
         <View>
-        
             <TouchableOpacity onPress={handleCliqueVisa} style={styles.button}>
         <MaterialCommunityIcons name="credit-card-lock" size={30} color={'#460fc9'} />
         <View style={styles.content}>
@@ -60,7 +59,6 @@ export default function ListaCartoes() {
       {exibirCampos && (
         renderNewCard()
       )}
-      
     </View>
     );
 }
