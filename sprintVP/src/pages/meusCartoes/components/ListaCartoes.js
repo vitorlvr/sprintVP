@@ -30,10 +30,10 @@ export default function ListaCartoes() {
           <View>
             {cards.map((card) => (
               <View key={card.id}>
-                <Text>Card Name: {card.name}</Text>
-                <Text>Card Number: {card.number}</Text>
-                <Text>Expiration Date: {card.expirationDate}</Text>
-                <Text>CVV: {card.cvv}</Text>
+                <Text style={styles.textoDescricao}>Titular: {card.name}</Text>
+                <Text style={styles.textoDescricao}>Número do Cartão: {card.number}</Text>
+                <Text style={styles.textoDescricao}>Data de Validade: {card.expirationDate}</Text>
+                <Text style={styles.textoDescricao}>CVV: {card.cvv}</Text>
               </View>
             ))}
           </View>
@@ -113,4 +113,9 @@ const styles = StyleSheet.create({
         fontFamily: "MontserratBold",
         padding: 5,
     },
+    textoDescricao: {
+      fontFamily: 'MontserratRegular',
+      padding: 2,
+      fontSize: 16,
+    }
 });
