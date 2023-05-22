@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axios from 'axios';
@@ -52,7 +52,7 @@ const ItemClicavel = () => {
       </TouchableOpacity>
 
       {exibirCampos && (
-        <View>
+        <ScrollView>
           <Text style={styles.textoInput}>Nome do Titular: </Text>
           <TextInput
             placeholder="Digite aqui"
@@ -91,7 +91,7 @@ const ItemClicavel = () => {
             <Text style={styles.textoEnviar}>ADICIONAR</Text>
           </TouchableOpacity>
           
-        </View>
+        </ScrollView>
       )}
         <ListaCartoes />
     </View>
