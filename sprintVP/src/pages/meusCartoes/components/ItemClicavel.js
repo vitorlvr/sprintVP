@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
 
 import { MaterialCommunityIcons, AntDesign, Octicons } from '@expo/vector-icons';
+
 import axios from 'axios';
 
 import ListaCartoes from './ListaCartoes';
+import IconVisa from '../assets/logo-visa.png';
+import IconMaster from '../assets/mastercard-logo.png';
+import IconElo from '../assets/elo-logo.png';
 
-const { height } = Dimensions.get('window');
 
 const ItemClicavel = () => {
   const [exibirCampos, setExibirCampos] = useState(false);
@@ -15,6 +18,11 @@ const ItemClicavel = () => {
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCvv] = useState('');
   const [newCard, setNewCard] = useState('');
+  const [bandeira, setBandeira] = useState(null);
+
+  useEffect(() => {
+    determineCardBrand();
+  }, [number]);
 
   async function handleAddCard() {
     try {
@@ -34,13 +42,27 @@ const ItemClicavel = () => {
     }
   }
 
-  
+  const determineCardBrand = () => {
+    const firstDigit = number.charAt(0);
+    let bandeiraAtual = null;
+
+    if (firstDigit === '4') {
+      bandeiraAtual = IconVisa;
+    } else if (firstDigit === '5') {
+      bandeiraAtual = IconMaster;
+    } else if (firstDigit === '6') {
+      bandeiraAtual = IconElo;
+    }
+
+    setBandeira(bandeiraAtual);
+  };
 
   const handleCliqueNovoCartao = () => {
     setExibirCampos(!exibirCampos);
   };
 
   
+  const back = false; 
 
   return (
     <View>
@@ -56,8 +78,26 @@ const ItemClicavel = () => {
       {exibirCampos && (
         <View style={styles.container}>
           <ScrollView >
-            <View style={styles.cartao}>
 
+            <View style={styles.cartao}>
+              {back
+                ? 
+                <View style={styles.versoCartao}>
+                    <Text style={styles.textCVV}>{cvv}</Text>
+                </View>
+                :
+                <View style={styles.information}>
+                  <View style={styles.frenteCartao}>
+                    <Text style={[styles.textoCartao, {fontWeight: 'bold', fontSize: 18}]}>{number}</Text>
+                    <Text style={styles.textoCartao}>{name}</Text>
+                    <Text style={styles.textoCartao}>{expirationDate}</Text>
+                  </View>
+                  
+                  {bandeira && <Image source={bandeira} style={styles.imagemBandeira} />}
+                </View>
+                
+              }
+              
             </View>
             
             <View style={styles.input}>
@@ -76,7 +116,9 @@ const ItemClicavel = () => {
               <TextInput
                 placeholder="Número do Cartão"
                 value={number}
-                onChangeText={setNumber}
+                onChangeText={(text) => {
+                  setNumber(text);
+                }}
                 returnKeyType="send"
                 style={styles.textoInput}
               />
@@ -140,7 +182,41 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginLeft: 25,
       marginBottom: 15,
+    },
+    information: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      justifyContent: 'space-between',
+      padding: 14,
+    },
+    versoCartao: {
+      width: "100%",
+      height: 30,
+      marginTop: 25,
+      backgroundColor: "#BDBDBD",
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+      justifyContent: 'center',
+    },
+    textCVV: {
+      marginRight: 40,
+
+    },
+    frenteCartao: {
+      width: "80%",
+      marginTop: 50,
       
+      
+    },
+    textoCartao: {
+        maxHeight: 35,
+        marginTop: 8,
+        color: "#FAFAFA",
+        fontSize: 16,
+    },
+    imagemBandeira: {
+      width: "20%",
+      height: "35%",
     },
     button: {
         flexDirection: 'row',
