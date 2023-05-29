@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getCards from './GetCards';
 
@@ -8,8 +8,8 @@ import IconMaster from '../assets/mastercard-logo.png';
 import IconElo from '../assets/elo-logo.png';
 
 
-export default function ListaCartoes() {
-    const [cards, setCards] = useState('');
+export default function ListaCartoes({ card }) {
+    const [cards, setCards] = useState(card);
 
     async function fetchCards() {
         const cardsData = await getCards();
@@ -26,7 +26,6 @@ export default function ListaCartoes() {
       
     
       const renderNewCard = () => {
-        fetchCards();
         if (cards.length === 0) {
           return null;
         }
@@ -56,9 +55,6 @@ export default function ListaCartoes() {
                     <Image source={IconElo} style={styles.imagemBandeira} />
                   )}
                 </View>
-
-                
-
 
               ))}
             </View>

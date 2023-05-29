@@ -20,6 +20,8 @@ const ItemClicavel = () => {
   const [newCard, setNewCard] = useState('');
   const [bandeira, setBandeira] = useState(null);
   const [cadastrarClicked, setCadastrarClicked] = useState(false); 
+  const [cartoesCadastrados, setCartoesCadastrados] = useState([]);
+
 
   useEffect(() => {
     determineCardBrand();
@@ -33,7 +35,8 @@ const ItemClicavel = () => {
         expirationDate,
         cvv
       });
-      setNewCard(response.data);
+      const newCard = response.data;
+      setCartoesCadastrados([...cartoesCadastrados, newCard]);
       setName('');
       setNumber('');
       setExpirationDate('');
@@ -170,15 +173,21 @@ const ItemClicavel = () => {
               </View>
             </View>
 
-            <TouchableOpacity style={styles.botao} onPress={handleAddCard && handleCliqueCadastrar}>
+            <TouchableOpacity style={styles.botao} onPress={() => { handleAddCard(); handleCliqueCadastrar(); }}>
               <Text style={styles.textoEnviar}>Cadastrar</Text>
             </TouchableOpacity>
           </ScrollView>
         </View>
       )}
 
-      {/* Renderiza ListaCartoes somente quando cadastrarClicked for verdadeiro */}
-      {cadastrarClicked && <ListaCartoes />}
+      {cadastrarClicked && (
+        <View>
+          {cartoesCadastrados.map((card) => (
+            <ListaCartoes key={card.id} card={card} />
+          ))}
+        </View>
+      )}
+      
     </View>
   );
 };
