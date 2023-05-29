@@ -11,7 +11,6 @@ import IconMaster from '../assets/mastercard-logo.png';
 import IconElo from '../assets/elo-logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
 
-
 const ItemClicavel = () => {
   const [exibirCampos, setExibirCampos] = useState(false);
   const [name, setName] = useState('');
@@ -20,6 +19,7 @@ const ItemClicavel = () => {
   const [cvv, setCvv] = useState('');
   const [newCard, setNewCard] = useState('');
   const [bandeira, setBandeira] = useState(null);
+  const [cadastrarClicked, setCadastrarClicked] = useState(false); 
 
   useEffect(() => {
     determineCardBrand();
@@ -43,24 +43,28 @@ const ItemClicavel = () => {
     }
   }
 
-    const determineCardBrand = () => {
-      const firstDigit = number.charAt(0);
-      let bandeiraAtual = null;
+  const determineCardBrand = () => {
+    const firstDigit = number.charAt(0);
+    let bandeiraAtual = null;
 
-      if (firstDigit === '4') {
-        bandeiraAtual = IconVisa;
-      } else if (firstDigit === '5') {
-        bandeiraAtual = IconMaster;
-      } else if (firstDigit === '6') {
-        bandeiraAtual = IconElo;
-      }
+    if (firstDigit === '4') {
+      bandeiraAtual = IconVisa;
+    } else if (firstDigit === '5') {
+      bandeiraAtual = IconMaster;
+    } else if (firstDigit === '6') {
+      bandeiraAtual = IconElo;
+    }
 
-      setBandeira(bandeiraAtual);
-    };
+    setBandeira(bandeiraAtual);
+  };
 
   const handleCliqueNovoCartao = () => {
     setExibirCampos(!exibirCampos);
   };
+
+  const handleCliqueCadastrar = () => {
+    setCadastrarClicked(true);
+  }
 
   const [back, setBack] = useState(false);
 
@@ -74,55 +78,52 @@ const ItemClicavel = () => {
         </View>
         <MaterialCommunityIcons name="chevron-right" size={24} color="#460fc9" />
       </TouchableOpacity>
-      
+
       {exibirCampos && (
         <View style={styles.container}>
-          <ScrollView >
-
+          <ScrollView>
             <View>
               <LinearGradient
-              colors={['#42007F', '#6600C7']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              locations={[0.33, 1]}
-              style={styles.cartao}
+                colors={['#42007F', '#6600C7']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                locations={[0.33, 1]}
+                style={styles.cartao}
               >
-                {back
-                ? 
-                <View style={styles.versoCartao}>
+                {back ? (
+                  <View style={styles.versoCartao}>
                     <Text style={styles.textCVV}>{cvv}</Text>
-                </View>
-                :
-                <View style={styles.information}>
-                  <View style={styles.frenteCartao}>
-                    <Text style={[styles.textoCartao, {fontWeight: 'bold', fontSize: 18}]}>{number}</Text>
-                    <Text style={styles.textoCartao}>{name}</Text>
-                    <Text style={styles.textoCartao}>{expirationDate}</Text>
                   </View>
-                  
-                  {bandeira && <Image source={bandeira} style={styles.imagemBandeira} />}
-                </View>
-                
-              }
+                ) : (
+                  <View style={styles.information}>
+                    <View style={styles.frenteCartao}>
+                      <Text style={[styles.textoCartao, { fontWeight: 'bold', fontSize: 18 }]}>{number}</Text>
+                      <Text style={styles.textoCartao}>{name}</Text>
+                      <Text style={styles.textoCartao}>{expirationDate}</Text>
+                    </View>
+
+                    {bandeira && <Image source={bandeira} style={styles.imagemBandeira} />}
+                  </View>
+                )}
               </LinearGradient>
             </View>
-            
+
             <View style={styles.input}>
-              <AntDesign name='user'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
+              <AntDesign name="user" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
               <TextInput
                 placeholder="Nome do Titular"
                 value={name}
-                onChangeText={text => {
-                    setName(text);
-                    setBack(false); 
+                onChangeText={(text) => {
+                  setName(text);
+                  setBack(false);
                 }}
                 returnKeyType="send"
                 style={styles.textoInput}
               />
             </View>
 
-            <View style={styles.input}> 
-            <Octicons name='number'size={20} color={"#5619b4"} style={{marginRight: 10,}}/> 
+            <View style={styles.input}>
+              <Octicons name="number" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
               <TextInput
                 placeholder="Número do Cartão"
                 value={number}
@@ -130,58 +131,54 @@ const ItemClicavel = () => {
                   setNumber(text);
                   setBack(false);
                 }}
-                keyboardType='numbers-and-punctuation'
+                keyboardType="numbers-and-punctuation"
                 returnKeyType="send"
                 style={styles.textoInput}
               />
             </View>
-            
-            
 
             <View style={styles.containerInputsJuntos}>
               <View style={styles.inputsJuntos}>
-                <AntDesign name='calendar'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
+                <AntDesign name="calendar" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
                 <TextInput
-                placeholder="Validade"
-                value={expirationDate}
-                onChangeText={text => {
+                  placeholder="Validade"
+                  value={expirationDate}
+                  onChangeText={(text) => {
                     setExpirationDate(text);
-                    setBack(false); 
-                }}
-                keyboardType='numbers-and-punctuation'
-                returnKeyType="send"
-                style={styles.textoInput}
+                    setBack(false);
+                  }}
+                  keyboardType="numbers-and-punctuation"
+                  returnKeyType="send"
+                  style={styles.textoInput}
                 />
               </View>
 
               <View style={styles.inputsJuntos}>
-                <MaterialCommunityIcons name='lock'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
+                <MaterialCommunityIcons name="lock" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
                 <TextInput
                   placeholder="CVV"
                   value={cvv}
-                  onChangeText={text => {
+                  onChangeText={(text) => {
                     setCvv(text);
-                    setBack(true); 
+                    setBack(true);
                   }}
-                  keyboardType='numbers-and-punctuation'
+                  keyboardType="numbers-and-punctuation"
                   returnKeyType="send"
                   secureTextEntry={true}
-                  style={[styles.textoInput, {width: 100},]}
+                  style={[styles.textoInput, { width: 100 }]}
                 />
               </View>
-            </View>  
+            </View>
 
-              
-
-            <TouchableOpacity style={styles.botao} onPress={handleAddCard}>
+            <TouchableOpacity style={styles.botao} onPress={handleAddCard && handleCliqueCadastrar}>
               <Text style={styles.textoEnviar}>Cadastrar</Text>
             </TouchableOpacity>
-            
           </ScrollView>
         </View>
       )}
-          <ListaCartoes />
-        
+
+      {/* Renderiza ListaCartoes somente quando cadastrarClicked for verdadeiro */}
+      {cadastrarClicked && <ListaCartoes />}
     </View>
   );
 };
