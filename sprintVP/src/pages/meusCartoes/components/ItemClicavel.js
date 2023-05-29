@@ -9,6 +9,7 @@ import ListaCartoes from './ListaCartoes';
 import IconVisa from '../assets/logo-visa.png';
 import IconMaster from '../assets/mastercard-logo.png';
 import IconElo from '../assets/elo-logo.png';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const ItemClicavel = () => {
@@ -42,27 +43,26 @@ const ItemClicavel = () => {
     }
   }
 
-  const determineCardBrand = () => {
-    const firstDigit = number.charAt(0);
-    let bandeiraAtual = null;
+    const determineCardBrand = () => {
+      const firstDigit = number.charAt(0);
+      let bandeiraAtual = null;
 
-    if (firstDigit === '4') {
-      bandeiraAtual = IconVisa;
-    } else if (firstDigit === '5') {
-      bandeiraAtual = IconMaster;
-    } else if (firstDigit === '6') {
-      bandeiraAtual = IconElo;
-    }
+      if (firstDigit === '4') {
+        bandeiraAtual = IconVisa;
+      } else if (firstDigit === '5') {
+        bandeiraAtual = IconMaster;
+      } else if (firstDigit === '6') {
+        bandeiraAtual = IconElo;
+      }
 
-    setBandeira(bandeiraAtual);
-  };
+      setBandeira(bandeiraAtual);
+    };
 
   const handleCliqueNovoCartao = () => {
     setExibirCampos(!exibirCampos);
   };
 
-  
-  const back = false; 
+  const [back, setBack] = useState(false);
 
   return (
     <View>
@@ -79,8 +79,15 @@ const ItemClicavel = () => {
         <View style={styles.container}>
           <ScrollView >
 
-            <View style={styles.cartao}>
-              {back
+            <View>
+              <LinearGradient
+              colors={['#42007F', '#6600C7']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              locations={[0.33, 1]}
+              style={styles.cartao}
+              >
+                {back
                 ? 
                 <View style={styles.versoCartao}>
                     <Text style={styles.textCVV}>{cvv}</Text>
@@ -97,28 +104,33 @@ const ItemClicavel = () => {
                 </View>
                 
               }
-              
+              </LinearGradient>
             </View>
             
             <View style={styles.input}>
-              <AntDesign name='user'size={20} color={"#6A1B9A"} style={{marginRight: 10,}}/>
+              <AntDesign name='user'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
               <TextInput
                 placeholder="Nome do Titular"
                 value={name}
-                onChangeText={setName}
+                onChangeText={text => {
+                    setName(text);
+                    setBack(false); 
+                }}
                 returnKeyType="send"
                 style={styles.textoInput}
               />
             </View>
 
             <View style={styles.input}> 
-            <Octicons name='number'size={20} color={"#6A1B9A"} style={{marginRight: 10,}}/> 
+            <Octicons name='number'size={20} color={"#5619b4"} style={{marginRight: 10,}}/> 
               <TextInput
                 placeholder="Número do Cartão"
                 value={number}
                 onChangeText={(text) => {
                   setNumber(text);
+                  setBack(false);
                 }}
+                keyboardType='numbers-and-punctuation'
                 returnKeyType="send"
                 style={styles.textoInput}
               />
@@ -128,22 +140,30 @@ const ItemClicavel = () => {
 
             <View style={styles.containerInputsJuntos}>
               <View style={styles.inputsJuntos}>
-                <AntDesign name='calendar'size={20} color={"#6A1B9A"} style={{marginRight: 10,}}/>
+                <AntDesign name='calendar'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
                 <TextInput
                 placeholder="Validade"
                 value={expirationDate}
-                onChangeText={setExpirationDate}
+                onChangeText={text => {
+                    setExpirationDate(text);
+                    setBack(false); 
+                }}
+                keyboardType='numbers-and-punctuation'
                 returnKeyType="send"
                 style={styles.textoInput}
                 />
               </View>
 
               <View style={styles.inputsJuntos}>
-                <MaterialCommunityIcons name='lock'size={20} color={"#6A1B9A"} style={{marginRight: 10,}}/>
+                <MaterialCommunityIcons name='lock'size={20} color={"#5619b4"} style={{marginRight: 10,}}/>
                 <TextInput
                   placeholder="CVV"
                   value={cvv}
-                  onChangeText={setCvv}
+                  onChangeText={text => {
+                    setCvv(text);
+                    setBack(true); 
+                  }}
+                  keyboardType='numbers-and-punctuation'
                   returnKeyType="send"
                   secureTextEntry={true}
                   style={[styles.textoInput, {width: 100},]}
@@ -175,7 +195,7 @@ const styles = StyleSheet.create({
       backgroundColor: "#f3f6f9",
     },
     cartao: {
-      backgroundColor: "#6A1B9A", 
+      backgroundColor: "#5619b4", 
       width: 310, 
       height: 160,
       borderRadius: 20,
@@ -205,8 +225,7 @@ const styles = StyleSheet.create({
     frenteCartao: {
       width: "80%",
       marginTop: 50,
-      
-      
+          
     },
     textoCartao: {
         maxHeight: 35,
@@ -276,7 +295,7 @@ const styles = StyleSheet.create({
       height: 55,
       marginVertical: 20,
       borderRadius: 55,
-      backgroundColor: "#6A1B9A",
+      backgroundColor: "#5619b4",
     },
     textoEnviar: {
         fontSize: 20,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View} from 'react-native';
 
 // Importação dos componentes
 import Header from '../../components/header';
@@ -12,12 +12,14 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
 
       <Header />
-
+      
       <Actions navigation={navigation} />
 
-      <Text style={styles.title}>Últimas movimentações:</Text>
+      <ScrollView>
+        <Text style={styles.title}>Últimas movimentações:</Text>
 
-      <Balance />
+        <Balance />
+      </ScrollView>
 
     </View>
   );

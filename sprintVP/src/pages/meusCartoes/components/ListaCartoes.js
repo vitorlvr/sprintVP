@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getCards from './GetCards';
+
+import IconVisa from '../assets/logo-visa.png';
+import IconMaster from '../assets/mastercard-logo.png';
+import IconElo from '../assets/elo-logo.png';
 
 
 export default function ListaCartoes() {
     const [cards, setCards] = useState('');
+
     async function fetchCards() {
         const cardsData = await getCards();
         if (cardsData == null) {
@@ -25,17 +30,38 @@ export default function ListaCartoes() {
         if (cards.length === 0) {
           return null;
         }
-      
+
+        
+
+
+
         return (
-          <View>
-            {cards.map((card) => (
-              <View key={card.id}>
-                <Text style={styles.textoDescricao}>Titular: {card.name}</Text>
-                <Text style={styles.textoDescricao}>Número do Cartão: {card.number}</Text>
-                <Text style={styles.textoDescricao}>Data de Validade: {card.expirationDate}</Text>
-                <Text style={styles.textoDescricao}>CVV: {card.cvv}</Text>
-              </View>
-            ))}
+          <View style={styles.cartao}>
+            <View style={styles.information}>
+              {cards.map((card) => (
+                <View key={card.id} >
+                  <View>
+                    <Text style={[styles.textoCartao, { fontWeight: 'bold', fontSize: 18 }]}>{card.number}</Text>
+                    <Text style={styles.textoCartao}>{card.name}</Text>
+                    <Text style={styles.textoCartao}>{card.expirationDate}</Text>
+                  </View>
+                  
+                  {card.number.charAt(0) === '4' && (
+                    <Image source={IconVisa} style={styles.imagemBandeira} />
+                  )}
+                  {card.number.charAt(0) === '5' && (
+                    <Image source={IconMaster} style={styles.imagemBandeira} />
+                  )}
+                  {card.number.charAt(0) === '6' && (
+                    <Image source={IconElo} style={styles.imagemBandeira} />
+                  )}
+                </View>
+
+                
+
+
+              ))}
+            </View>
           </View>
         );
       };
@@ -53,7 +79,7 @@ export default function ListaCartoes() {
           <Text style={styles.textoBotao}>Visa **** {(cards.number && cards.number.slice(-4)) || ''}</Text>
           <Text style={styles.descricaoCartao}>Em até 12x.</Text>
         </View>
-        <MaterialCommunityIcons name="chevron-down" size={24} color="#460fc9" />
+        <MaterialCommunityIcons name="chevron-down" size={24} color="#42007F" />
       </TouchableOpacity>
       
       {exibirCampos && (
@@ -64,6 +90,35 @@ export default function ListaCartoes() {
 }
 
 const styles = StyleSheet.create({
+    cartao: {
+      backgroundColor: "#10cfc9", 
+      width: 310, 
+      height: 160,
+      borderRadius: 20,
+      alignItems: 'center',
+      marginLeft: 25,
+      marginBottom: 15,
+    },
+    information: {
+      flexDirection: 'row',
+      alignItems: 'flex-end',
+      justifyContent: 'space-between',
+      padding: 14,
+    },
+    frenteCartao: {
+      width: "80%",
+      marginTop: 50,
+    },
+    textoCartao: {
+        maxHeight: 35,
+        marginTop: 8,
+        color: "#FAFAFA",
+        fontSize: 16,
+    },
+    imagemBandeira: {
+      width: "20%",
+      height: "35%",
+    },
     button: {
         flexDirection: 'row',
         alignItems: 'center',

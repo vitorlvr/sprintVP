@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
 
 import Header from "./components/Header";
 import ItemClicavel from "./components/ItemClicavel";
@@ -10,11 +10,14 @@ export default function Cartoes() {
         <View style={styles.container}>
 
             <Header />
-
-            <View style={styles.main}>
-                <Text style={styles.titulo}>Qual cartão de crédito você prefere usar?</Text>
-                <ItemClicavel />
-            </View>
+            
+            <ScrollView>
+                <View style={styles.main}>
+                    <Text style={styles.titulo}>Qual cartão de crédito você prefere usar?</Text>
+                    <ItemClicavel />
+                </View>
+            </ScrollView>
+            
                                               
         </View>           
     );

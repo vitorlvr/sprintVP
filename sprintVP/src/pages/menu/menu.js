@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { NativeBaseProvider, VStack, Switch, Text, List } from 'native-base';
+import { NativeBaseProvider, VStack, Switch, Text, List, ScrollView } from 'native-base';
 import { Avatar, ListItem } from '@rneui/themed';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -40,7 +40,7 @@ const MenuPage = () => {
         </ListItem>
       </LinearGradient>
 
-      
+       <ScrollView>
        <ListItem bottomDivider>
        <ListItem.Content>
           <ListItem.Title>Modo noturno</ListItem.Title>
@@ -92,6 +92,8 @@ const MenuPage = () => {
         </ListItem.Content>
         <ListItem.Chevron />
       </ListItem>
+       </ScrollView>
+       
       </View>
     </NativeBaseProvider>
   );
