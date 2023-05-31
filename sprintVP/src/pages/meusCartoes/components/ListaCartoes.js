@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import getCards from './GetCards';
 
@@ -8,8 +8,8 @@ import IconMaster from '../assets/mastercard-logo.png';
 import IconElo from '../assets/elo-logo.png';
 
 
-export default function ListaCartoes() {
-    const [cards, setCards] = useState('');
+export default function ListaCartoes({ card }) {
+    const [cards, setCards] = useState(card);
 
     async function fetchCards() {
         const cardsData = await getCards();
@@ -26,45 +26,37 @@ export default function ListaCartoes() {
       
     
       const renderNewCard = () => {
-        fetchCards();
         if (cards.length === 0) {
           return null;
         }
-
-        
-
-
-
+      
+        const newCard = cards[cards.length - 1]; // Acessa o cartão mais recente
+      
         return (
           <View style={styles.cartao}>
             <View style={styles.information}>
-              {cards.map((card) => (
-                <View key={card.id} >
-                  <View>
-                    <Text style={[styles.textoCartao, { fontWeight: 'bold', fontSize: 18 }]}>{card.number}</Text>
-                    <Text style={styles.textoCartao}>{card.name}</Text>
-                    <Text style={styles.textoCartao}>{card.expirationDate}</Text>
-                  </View>
-                  
-                  {card.number.charAt(0) === '4' && (
-                    <Image source={IconVisa} style={styles.imagemBandeira} />
-                  )}
-                  {card.number.charAt(0) === '5' && (
-                    <Image source={IconMaster} style={styles.imagemBandeira} />
-                  )}
-                  {card.number.charAt(0) === '6' && (
-                    <Image source={IconElo} style={styles.imagemBandeira} />
-                  )}
-                </View>
-
-                
-
-
-              ))}
+              <View>
+                <Text style={[styles.textoCartao, { fontWeight: 'bold', fontSize: 18 }]}>
+                  {newCard.number}
+                </Text>
+                <Text style={styles.textoCartao}>{newCard.name}</Text>
+                <Text style={styles.textoCartao}>{newCard.expirationDate}</Text>
+              </View>
+      
+              {newCard.number.charAt(0) === '4' && (
+                <Image source={IconVisa} style={styles.imagemBandeira} />
+              )}
+              {newCard.number.charAt(0) === '5' && (
+                <Image source={IconMaster} style={styles.imagemBandeira} />
+              )}
+              {newCard.number.charAt(0) === '6' && (
+                <Image source={IconElo} style={styles.imagemBandeira} />
+              )}
             </View>
           </View>
         );
       };
+      
       
       const [exibirCampos, setExibirCampos] = useState(false);
       const handleCliqueVisa = () => {
@@ -91,7 +83,7 @@ export default function ListaCartoes() {
 
 const styles = StyleSheet.create({
     cartao: {
-      backgroundColor: "#10cfc9", 
+      backgroundColor: "#6600C7", 
       width: 310, 
       height: 160,
       borderRadius: 20,
