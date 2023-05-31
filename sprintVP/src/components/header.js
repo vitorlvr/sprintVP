@@ -38,10 +38,18 @@ export default function Header({ name }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#460fc9',
-        paddingTop: statusBarHeight,
-        paddingVertical: 20,
-        marginTop: -130,
+      backgroundColor: '#460fc9',
+      paddingTop: statusBarHeight,
+      paddingVertical: 20,
+      marginTop: -130,
+      shadowOffset: { 
+        width: 5, 
+        height: 5,
+      },
+      shadowColor: "000",
+      shadowOpacity: 0.75,
+      shadowRadius: 5,
+      elevation: 9,
     },
     content: {
         flexDirection: 'row',
