@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
+import { TextInputMask } from 'react-native-masked-text';
+
 
 import { MaterialCommunityIcons, AntDesign, Octicons } from '@expo/vector-icons';
 
@@ -127,7 +129,11 @@ const ItemClicavel = () => {
 
             <View style={styles.input}>
               <Octicons name="number" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
-              <TextInput
+              <TextInputMask
+                type={'credit-card'}
+                options={{
+                  obfuscated: false, 
+                }}
                 placeholder="Número do Cartão"
                 value={number}
                 onChangeText={(text) => {
@@ -143,7 +149,11 @@ const ItemClicavel = () => {
             <View style={styles.containerInputsJuntos}>
               <View style={styles.inputsJuntos}>
                 <AntDesign name="calendar" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />
-                <TextInput
+                <TextInputMask
+                  type={'datetime'}
+                  options={{
+                    format: 'MM/YYYY' // Formato de máscara para mês e ano
+                  }}
                   placeholder="Validade"
                   value={expirationDate}
                   onChangeText={(text) => {
