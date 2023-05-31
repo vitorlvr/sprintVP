@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AuthScreen from './src/pages/acesso/AuthScreen';
 import { Routes } from './src/routes';
+import { Splash } from './src/pages/splash/splash';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,12 +27,16 @@ export default function App() {
   return (
 
     <NavigationContainer>
-
       <Stack.Navigator screenOptions={{
         headerShown: false
       }}>
+        <Stack.Screen
+          name='Splash'
+          component={React.memo(Splash)}
+        />
         <Stack.Screen name='AuthScreen' component={AuthScreen} />
         <Stack.Screen name='Routes' component={Routes} />
+
       </Stack.Navigator>
 
     </NavigationContainer>
