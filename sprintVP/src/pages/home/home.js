@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 // Importação dos componentes
 import Header from '../../components/header';
@@ -12,7 +12,7 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
 
       <Header />
-      
+
       <Actions navigation={navigation} />
 
       <ScrollView>
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     fontWeight: 'bold',
     paddingStart: 20,
-    paddingEnd: 20,    
+    paddingEnd: 20,
   }
 })

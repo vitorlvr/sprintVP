@@ -7,87 +7,87 @@ import { ListItem } from '@rneui/themed';
 const ProfilePosts = () => {
   return (
     <NativeBaseProvider style={styles.container}>
-        <LinearGradient
-          colors={['#42007F', '#6600C7']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          locations={[0.33, 1]}
-          style={styles.pageHeader}
-        >
-          <View style={styles.userInfos}>
+      <LinearGradient
+        colors={['#42007F', '#6600C7']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        locations={[0.33, 1]}
+        style={styles.pageHeader}
+      >
+        <View style={styles.userInfos}>
           <View style={styles.headerButtons}>
             <Text style={styles.logout}>Logout</Text>
             <Text style={styles.profile}>Profile</Text>
             <Text style={styles.settings}>Settings</Text>
           </View>
-            <Image
-              style={styles.iconHeader}
-              contentFit="cover"
-              source={require("../../../assets/iconx.png")}
-            />
-          </View>
+          <Image
+            style={styles.iconHeader}
+            contentFit="cover"
+            source={require("../../../assets/iconx.png")}
+          />
+        </View>
         <Image
           style={styles.userPhoto}
           contentFit="cover"
           source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs46fIKd8hYeUZRJ4Q9rFA016EVkt4NhF_lCzkBLFhdQ&s' }}
         />
-            <Text style={styles.userName}>
-              Ednaldo Pereira
-            </Text>
-        </LinearGradient>
-              <ScrollView style={styles.confMenu}>
-                <ListItem bottomDivider>
-                  <ListItem.Content>
-                    <ListItem.Title>Modo noturno</ListItem.Title>
-                  </ListItem.Content>
-                  <Switch
-                    style={styles.switchButton}
-                    thumbColor="#6600C7"
-                    trackColor={{
-                      false: '#6600C7',
-                      true: '#1ccbcb',
-                    }}
-                  />
-                </ListItem>
-                <ListItem bottomDivider>
-                  <ListItem.Content>
-                    <ListItem.Title>Autenticação de dois fatores</ListItem.Title>
-                  </ListItem.Content>
-                  <Switch
-                    style={styles.switchButton}
-                    thumbColor="#6600C7"
-                    trackColor={{
-                      false: '#6600C7',
-                      true: '#1ccbcb',
-                    }}
-                  />
-                </ListItem>
-                <ListItem bottomDivider>
-                  <ListItem.Content>
-                    <ListItem.Title>Notificações</ListItem.Title>
-                  </ListItem.Content>
-                  <Switch
-                    style={styles.switchButton}
-                    thumbColor="#6600C7"
-                    trackColor={{
-                      false: '#6600C7',
-                      true: '#1ccbcb',
-                    }}
-                  />
-                </ListItem>
-                <ListItem bottomDivider>
-                  <ListItem.Content>
-                    <ListItem.Title>Resgate sua senha</ListItem.Title>
-                  </ListItem.Content>
-                  <ListItem.Chevron />
-                </ListItem>
-                <ListItem bottomDivider>
-                  <ListItem.Content>
-                    <ListItem.Title>Entre em contato (se conseguir)</ListItem.Title>
-                  </ListItem.Content>
-                  <ListItem.Chevron />
-                </ListItem>
-              </ScrollView>
+        <Text style={styles.userName}>
+          Ednaldo Pereira
+        </Text>
+      </LinearGradient>
+      <ScrollView style={styles.confMenu}>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Modo noturno</ListItem.Title>
+          </ListItem.Content>
+          <Switch
+            style={styles.switchButton}
+            thumbColor="#6600C7"
+            trackColor={{
+              false: '#6600C7',
+              true: '#1ccbcb',
+            }}
+          />
+        </ListItem>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Autenticação de dois fatores</ListItem.Title>
+          </ListItem.Content>
+          <Switch
+            style={styles.switchButton}
+            thumbColor="#6600C7"
+            trackColor={{
+              false: '#6600C7',
+              true: '#1ccbcb',
+            }}
+          />
+        </ListItem>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Notificações</ListItem.Title>
+          </ListItem.Content>
+          <Switch
+            style={styles.switchButton}
+            thumbColor="#6600C7"
+            trackColor={{
+              false: '#6600C7',
+              true: '#1ccbcb',
+            }}
+          />
+        </ListItem>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Resgate sua senha</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Entre em contato (se conseguir)</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </ListItem>
+      </ScrollView>
     </NativeBaseProvider>
   );
 };
@@ -131,9 +131,9 @@ const styles = StyleSheet.create({
     right: 12,
   },
   pageHeader: {
-    height: 320, 
-    shadowOffset: { 
-      width: 5, 
+    height: 320,
+    shadowOffset: {
+      width: 5,
       height: 5,
     },
     shadowColor: "000",

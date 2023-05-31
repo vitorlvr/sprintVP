@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Image, TouchableOpacity, Text, Dimensions, SafeAreaView} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Text, Dimensions, SafeAreaView } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import * as LocalAuthentication from 'expo-local-authentication';
 
@@ -17,7 +17,7 @@ const AuthScreen = ({ navigation }) => {
       setIsBiometricSupported(compatible);
     })();
   });
-  
+
   function onAuthenticate() {
     const auth = LocalAuthentication.authenticateAsync({
       promptMessage: 'Autenticar',
@@ -30,74 +30,74 @@ const AuthScreen = ({ navigation }) => {
     );
   }
 
-    return (
-        <View style={styles.container}>
+  return (
+    <View style={styles.container}>
 
-            <Image source={logo} style ={styles.logo}/>
+      <Image source={logo} style={styles.logo} />
 
-            <Text style={styles.titulo}> Olá!</Text>
-            <Text style={styles.texto}>Para realizarmos seus pagamentos acesse ou crie sua conta.</Text> 
-            <Text style={styles.texto}>É rápido, gratuito e muito seguro!</Text>
+      <Text style={styles.titulo}> Olá!</Text>
+      <Text style={styles.texto}>Para realizarmos seus pagamentos acesse ou crie sua conta.</Text>
+      <Text style={styles.texto}>É rápido, gratuito e muito seguro!</Text>
 
-            <Animation />
+      <Animation />
 
-            <LinearGradient 
-            colors={['#5619b4', '#5619b4', '#10cfc9']} 
-            start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.0 }}
-            style={styles.botao}
-            >
-                { isAuthenticated 
-                    ? <TouchableOpacity onPress={onAuthenticate} style={styles.botao}>
-                        <Text style={styles.textoBotao}>LOGIN</Text>
-                      </TouchableOpacity>
-                    :  <TouchableOpacity style={styles.botao}>
-                        <Text style={styles.textoBotao}>LOGIN</Text>
-                      </TouchableOpacity>
-                }
-                
-            </LinearGradient>
+      <LinearGradient
+        colors={['#5619b4', '#5619b4', '#10cfc9']}
+        start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.0 }}
+        style={styles.botao}
+      >
+        {isAuthenticated
+          ? <TouchableOpacity onPress={onAuthenticate} style={styles.botao}>
+            <Text style={styles.textoBotao}>LOGIN</Text>
+          </TouchableOpacity>
+          : <TouchableOpacity style={styles.botao}>
+            <Text style={styles.textoBotao}>LOGIN</Text>
+          </TouchableOpacity>
+        }
 
-        </View> 
-    );
+      </LinearGradient>
+
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#f3f6f9",
-        alignItems: "center",
-        justifyContent: "center",
-        paddingVertical: 8,
-        paddingHorizontal: 16,
-    },
-    logo : {
-        marginTop: 40,
-       width: 210,
-        height: 65,
+  container: {
+    flex: 1,
+    backgroundColor: "#f3f6f9",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  logo: {
+    marginTop: 40,
+    width: 210,
+    height: 65,
 
-    },
-    titulo : {
-        fontSize: 20,
-        padding: 25,
-        fontFamily: "MontserratBold",
-    },
-    texto: {
-        textAlign: "center",
-        fontSize: 16,
-        marginBottom: 15,
-        fontFamily: "MontserratRegular",
-    },
-    botao: {
-        alignItems: "center",
-        width: 350, 
-        marginVertical: 10,
-        borderRadius: 10,
-    },
-    textoBotao: {
-        fontSize: 20,
-        color: '#fff',
-        fontFamily: "MontserratBold",
-    },
+  },
+  titulo: {
+    fontSize: 20,
+    padding: 25,
+    fontFamily: "MontserratBold",
+  },
+  texto: {
+    textAlign: "center",
+    fontSize: 16,
+    marginBottom: 15,
+    fontFamily: "MontserratRegular",
+  },
+  botao: {
+    alignItems: "center",
+    width: 350,
+    marginVertical: 10,
+    borderRadius: 10,
+  },
+  textoBotao: {
+    fontSize: 20,
+    color: '#fff',
+    fontFamily: "MontserratBold",
+  },
 
 });
 

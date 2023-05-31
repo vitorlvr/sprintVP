@@ -19,7 +19,7 @@ const ItemClicavel = () => {
   const [cvv, setCvv] = useState('');
   const [newCard, setNewCard] = useState('');
   const [bandeira, setBandeira] = useState(null);
-  const [cadastrarClicked, setCadastrarClicked] = useState(false); 
+  const [cadastrarClicked, setCadastrarClicked] = useState(false);
   const [cartoesCadastrados, setCartoesCadastrados] = useState([]);
 
 
@@ -187,128 +187,128 @@ const ItemClicavel = () => {
           ))}
         </View>
       )}
-      
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      width: "100%",
-      height: "100%",
-      padding: 10,
-      borderRadius: 55,
-      backgroundColor: "#f3f6f9",
-    },
-    cartao: {
-      backgroundColor: "#5619b4", 
-      width: 310, 
-      height: 160,
-      borderRadius: 20,
-      alignItems: 'center',
-      marginLeft: 25,
-      marginBottom: 15,
-    },
-    information: {
-      flexDirection: 'row',
-      alignItems: 'flex-end',
-      justifyContent: 'space-between',
-      padding: 14,
-    },
-    versoCartao: {
-      width: "100%",
-      height: 30,
-      marginTop: 25,
-      backgroundColor: "#BDBDBD",
-      flexDirection: 'column',
-      alignItems: 'flex-end',
-      justifyContent: 'center',
-    },
-    textCVV: {
-      marginRight: 40,
+  container: {
+    width: "100%",
+    height: "100%",
+    padding: 10,
+    borderRadius: 55,
+    backgroundColor: "#f3f6f9",
+  },
+  cartao: {
+    backgroundColor: "#5619b4",
+    width: 310,
+    height: 160,
+    borderRadius: 20,
+    alignItems: 'center',
+    marginLeft: 25,
+    marginBottom: 15,
+  },
+  information: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    padding: 14,
+  },
+  versoCartao: {
+    width: "100%",
+    height: 30,
+    marginTop: 25,
+    backgroundColor: "#BDBDBD",
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  textCVV: {
+    marginRight: 40,
 
-    },
-    frenteCartao: {
-      width: "80%",
-      marginTop: 50,
-          
-    },
-    textoCartao: {
-        maxHeight: 35,
-        marginTop: 8,
-        color: "#FAFAFA",
-        fontSize: 16,
-    },
-    imagemBandeira: {
-      width: "20%",
-      height: "35%",
-    },
-    button: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 15,
-        borderBottomWidth: 2,
-        borderBottomColor: "#ECECEC"
-      },
-    textoBotao: {
-        fontSize: 20,
-        fontFamily: "MontserratRegular",
-        marginHorizontal: 20,
-    },
-    descricaoCartao: {
-        fontSize: 10,
-        fontFamily: "MontserratRegular",
-        marginHorizontal: 20,
-        color: "green"
-    },
-    content: {
-        
-    },
-    input: {
-        backgroundColor: "#BDBDBD50",
-        width: "100%",
-        height: 60,
-        marginTop: 14,
-        borderRadius: 8,
-        padding: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    containerInputsJuntos: {
-      flexDirection: 'row',
-    },
-    inputsJuntos: {
-      backgroundColor: "#BDBDBD50",
-      width: "45%",
-      height: 60,
-      marginTop: 14,
-      borderRadius: 8,
-      marginHorizontal: 10,
-      padding: 12,
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    textoInput: {
-        fontSize: 15,
-        fontFamily: "MontserratBold",
-        padding: 8,
-        color: "#000",
-    },
-    botao: {
-      alignItems: "center",
-      justifyContent: 'center',
-      width: "100%", 
-      height: 55,
-      marginVertical: 20,
-      borderRadius: 55,
-      backgroundColor: "#5619b4",
-    },
-    textoEnviar: {
-        fontSize: 20,
-        color: '#fff',
-        fontFamily: "MontserratBold",
-        padding: 5,
-    },
+  },
+  frenteCartao: {
+    width: "80%",
+    marginTop: 50,
+
+  },
+  textoCartao: {
+    maxHeight: 35,
+    marginTop: 8,
+    color: "#FAFAFA",
+    fontSize: 16,
+  },
+  imagemBandeira: {
+    width: "20%",
+    height: "35%",
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: "#ECECEC"
+  },
+  textoBotao: {
+    fontSize: 20,
+    fontFamily: "MontserratRegular",
+    marginHorizontal: 20,
+  },
+  descricaoCartao: {
+    fontSize: 10,
+    fontFamily: "MontserratRegular",
+    marginHorizontal: 20,
+    color: "green"
+  },
+  content: {
+
+  },
+  input: {
+    backgroundColor: "#BDBDBD50",
+    width: "100%",
+    height: 60,
+    marginTop: 14,
+    borderRadius: 8,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  containerInputsJuntos: {
+    flexDirection: 'row',
+  },
+  inputsJuntos: {
+    backgroundColor: "#BDBDBD50",
+    width: "45%",
+    height: 60,
+    marginTop: 14,
+    borderRadius: 8,
+    marginHorizontal: 10,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  textoInput: {
+    fontSize: 15,
+    fontFamily: "MontserratBold",
+    padding: 8,
+    color: "#000",
+  },
+  botao: {
+    alignItems: "center",
+    justifyContent: 'center',
+    width: "100%",
+    height: 55,
+    marginVertical: 20,
+    borderRadius: 55,
+    backgroundColor: "#5619b4",
+  },
+  textoEnviar: {
+    fontSize: 20,
+    color: '#fff',
+    fontFamily: "MontserratBold",
+    padding: 5,
+  },
 });
 
 export default ItemClicavel;

@@ -6,20 +6,19 @@ import ItemClicavel from "./components/ItemClicavel";
 
 
 export default function Cartoes() {
-    return(
+    return (
         <View style={styles.container}>
 
             <Header />
-            
+
             <ScrollView>
                 <View style={styles.main}>
                     <Text style={styles.titulo}>Qual cartão de crédito você prefere usar?</Text>
                     <ItemClicavel />
                 </View>
             </ScrollView>
-            
-                                              
-        </View>           
+
+        </View>
     );
 
 

@@ -7,15 +7,15 @@ const StatusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 :
 export default function Header({ name }) {
 
   return (
-      <LinearGradient
-            colors={['#42007F', '#6600C7']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            locations={[0.33, 1]}
-            style={styles.container}
-      >
-        <Text style={styles.initialText}>Meus Cartões</Text>
-      </LinearGradient>
+    <LinearGradient
+      colors={['#42007F', '#6600C7']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      locations={[0.33, 1]}
+      style={styles.container}
+    >
+      <Text style={styles.initialText}>Meus Cartões</Text>
+    </LinearGradient>
   );
 
 }

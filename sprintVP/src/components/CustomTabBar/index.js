@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, Platform, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function CustomTabBar({state, descriptors, navigation}) {
-    return(
+export default function CustomTabBar({ state, descriptors, navigation }) {
+    return (
         <View style={styles.container}>
 
             <View style={styles.content}>
@@ -24,13 +24,13 @@ export default function CustomTabBar({state, descriptors, navigation}) {
                     };
 
                     const onLongPress = () => {
-                      navigation.emit({
-                        type: 'tabLongPress',
-                        target: route.key,
-                      });
+                        navigation.emit({
+                            type: 'tabLongPress',
+                            target: route.key,
+                        });
                     };
 
-                    return(
+                    return (
                         <TouchableOpacity
                             accessibilityRole="button"
                             accessibilityState={isFocused ? { selected: true } : {}}
@@ -40,12 +40,12 @@ export default function CustomTabBar({state, descriptors, navigation}) {
                             onLongPress={onLongPress}
                             style={styles.buttonTab}
                         >
-                            <View style={{alignItems: 'center', padding: 4}}>
-                                <View style={[styles.innerButton, {backgroundColor: isFocused ? "#F2F3F4" : "transparent"}]}>
-                                    <AntDesign 
+                            <View style={{ alignItems: 'center', padding: 4 }}>
+                                <View style={[styles.innerButton, { backgroundColor: isFocused ? "#F2F3F4" : "transparent" }]}>
+                                    <AntDesign
                                         name={options.tabBarIcon}
                                         size={34}
-                                        color={ isFocused ? "#460fc9" : "#535353"}
+                                        color={isFocused ? "#460fc9" : "#535353"}
                                     />
                                 </View>
                             </View>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     innerButton: {
-        padding: 8,  
+        padding: 8,
         borderRadius: 99
     }
 });
