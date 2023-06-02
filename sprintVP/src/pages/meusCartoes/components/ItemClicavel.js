@@ -31,7 +31,7 @@ const ItemClicavel = () => {
 
   async function handleAddCard() {
     try {
-      const response = await axios.post('http://172.20.10.7:3000/cards', {
+      const response = await axios.post('http://192.168.0.26:3000/cards', {
         name,
         number,
         expirationDate,
