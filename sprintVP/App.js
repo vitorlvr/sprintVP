@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-native-reanimated';
 import { View } from 'react-native';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat'
 import { NavigationContainer } from '@react-navigation/native';

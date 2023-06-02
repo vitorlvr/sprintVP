@@ -42,8 +42,8 @@ const AuthScreen = ({ navigation }) => {
       <Animation />
 
       <LinearGradient
-        colors={['#5619b4', '#5619b4', '#10cfc9']}
-        start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.0 }}
+        colors={['#390878', '#390878', '#f3f6f9']}
+        start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.2 }}
         style={styles.botao}
       >
         {isAuthenticated

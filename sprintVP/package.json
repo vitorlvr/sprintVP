@@ -33,16 +33,18 @@
     "react": "18.2.0",
     "react-native": "0.71.7",
     "react-native-elements": "*",
-    "react-native-gesture-handler": "^2.9.0",
+    "react-native-gesture-handler": "~2.9.0",
     "react-native-linear-gradient": "*",
     "react-native-masked-text": "^1.13.0",
+    "react-native-reanimated": "~2.14.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.20.0",
     "react-native-svg": "^12.1.1",
     "victory-native": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9"
   },
   "private": true
 }
