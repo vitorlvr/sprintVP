@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, StatusBar, TouchableOpacity, Image, Dimensions } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
 import { Feather } from '@expo/vector-icons';
+import { MotiView, MotiText} from 'moti';
 
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight : 64;
 
@@ -17,7 +18,22 @@ export default function Header({ name }) {
             locations={[0.33, 1]}
             style={styles.container}
         >
-            <View style={styles.content}>
+            <MotiView 
+              style={styles.content}
+              from={{
+                translateY: -150,
+                opacity: 0,
+              }}
+              animate={{
+                translateY: 0,
+                opacity: 1,
+              }}
+              transition={{
+                type:"timing",
+                duration: 1000,
+                delay: 500,
+              }}
+            >
                 <View style={styles.logoContainer}>
                     <Image
                         source={require('../../assets/logoVp.png')}
@@ -28,9 +44,25 @@ export default function Header({ name }) {
                 <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser}>
                     <Feather name="user" size={30} color="#fff" />
                 </TouchableOpacity>
-            </View>
+            </MotiView>
+
             <View style={styles.msgView}>
-                <Text style={styles.msgText}>Bem vindo! Selecione uma categoria:</Text>
+                <MotiText 
+                  style={styles.msgText}
+                  from={{
+                    translateX: -500
+                  }}
+                  animate={{
+                    translateX: 0
+                  }}
+                  transition={{
+                    type:"timing",
+                    duration: 1000,
+                    delay: 1000,
+                  }}
+                >
+                    Bem vindo! Selecione uma categoria:
+                </MotiText>
             </View>
         </LinearGradient>
     );
@@ -40,7 +72,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#460fc9',
         paddingTop: statusBarHeight,
-        paddingVertical: 20,
+        paddingVertical: 0,
         marginTop: -130,
         shadowOffset: {
             width: 5,

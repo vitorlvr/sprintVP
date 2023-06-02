@@ -12,6 +12,7 @@ import IconVisa from '../assets/logo-visa.png';
 import IconMaster from '../assets/mastercard-logo.png';
 import IconElo from '../assets/elo-logo.png';
 import { LinearGradient } from 'expo-linear-gradient';
+import { MotiView } from 'moti';
 
 const ItemClicavel = () => {
   const [exibirCampos, setExibirCampos] = useState(false);
@@ -87,7 +88,19 @@ const ItemClicavel = () => {
       {exibirCampos && (
         <View style={styles.container}>
           <ScrollView>
-            <View>
+            <MotiView
+              from={{
+                translateX: -500
+              }}
+              animate={{
+                translateX: 0
+              }}
+              transition={{
+                type:"spring",
+                duration: 1200,
+                delay: 100,
+              }}
+            >
               <LinearGradient
                 colors={['#42007F', '#6600C7']}
                 start={{ x: 0, y: 0 }}
@@ -111,7 +124,7 @@ const ItemClicavel = () => {
                   </View>
                 )}
               </LinearGradient>
-            </View>
+            </MotiView>
 
             <View style={styles.input}>
               <AntDesign name="user" size={20} color={"#5619b4"} style={{ marginRight: 10 }} />

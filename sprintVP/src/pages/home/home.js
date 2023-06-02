@@ -1,4 +1,5 @@
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { MotiView } from 'moti';
 
 // Importação dos componentes
 import Header from '../../components/header';
@@ -28,13 +29,6 @@ const list = [
     date: '02/06/2023',
     type: 0
   },
-  {
-    id: 4,
-    label: 'IPVA Carro',
-    value: '1200,00',
-    date: '02/06/2023',
-    type: 0
-  }
 ]
 
 
@@ -45,22 +39,55 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
 
       <Header />
+      
+      <MotiView
+        from={{
+          rotateX: '-50deg',
+          opacity: 1
+        }}
+        animate={{
+          rotateX: '0deg',
+          opacity: 1
+        }}
+        transition={{
+          type:'timing',
+          duration: 200,
+          delay: 100,
+        }}
+      >
+        <Actions navigation={navigation} />
+      </MotiView>
+      
+      <MotiView
+        from={{
+          translateY: 1000,
+          opacity: 0
+        }}
+        animate={{
+          opacity: 1,
+          translateY: 0
+        }}
+        transition={{
+          type:'timing',
+          duration: 800,
+          delay: 300,
+        }}
+      >
+        <ScrollView>
+          <Text style={styles.title}>Últimas movimentações:</Text>
 
-      <Actions navigation={navigation} />
+          <Balance />
 
-      <ScrollView>
-        <Text style={styles.title}>Últimas movimentações:</Text>
-
-        <Balance />
-
-        <FlatList 
-          style={styles.list}
-          data={list}
-          keyExtractor={ (item) => String(item.id) }   
-          showsVerticalScrollIndicator={false}
-          renderItem={ ({ item }) => <Movements data={item}/>}     
-        />
-      </ScrollView>
+          <FlatList 
+            style={styles.list}
+            data={list}
+            keyExtractor={ (item) => String(item.id) }   
+            showsVerticalScrollIndicator={false}
+            renderItem={ ({ item }) => <Movements data={item}/>}     
+          />
+        </ScrollView> 
+      </MotiView>
+      
 
     </View>
   );
@@ -78,7 +105,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingStart: 20,
     paddingEnd: 20,
-    fontSize: 18
+    fontSize: 18,
   },
   list: {
     marginEnd: 14,

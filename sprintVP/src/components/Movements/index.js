@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { MotiView, AnimatePresence, MotiText } from 'moti';
 
 export default function Movements({ data }) {
     const [showValue, setShowValue] = useState(false);
@@ -12,12 +13,33 @@ export default function Movements({ data }) {
                 <Text style={styles.label}>{data.label}</Text>
 
                 { showValue ? 
-                    <Text style={styles.value}>R$ -{data.value}</Text>
+                    <AnimatePresence exitBefore>
+                        <MotiText 
+                        style={styles.value}
+                        from={{
+                            translateX: 100,
+                        }}
+                        animate={{
+                            translateX: 0,
+                        }}
+                        transition={{
+                            type:'spring',
+                            duration: 500,
+                        }}
+                        >
+                            R$ -{data.value}
+                        </MotiText>
+                    </AnimatePresence>
                 :
-                    <View style={styles.skeleton}>
-
-                    </View>
-
+                    <AnimatePresence exitBefore>
+                        <MotiView 
+                        style={styles.skeleton}
+                        from={{ opacity:0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ type: 'timing' }}
+                        >
+                        </MotiView>
+                    </AnimatePresence>
                 }
             </View>
         </TouchableOpacity>
