@@ -36,9 +36,9 @@ export default function Header({ name }) {
             >
                 <View style={styles.logoContainer}>
                     <Image
-                        source={require('../../assets/logoVp.png')}
+                        source={require('../../assets/Monetix-logo.png')}
                         resizeMode="contain"
-                        style={{ width: imageWidth, height: imageHeight, padding: 0, margin: 0 }}
+                        style={{ width: imageWidth, height: imageHeight, padding: 0, margin: 8 }}
                     />
                 </View>
                 <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser}>

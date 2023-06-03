@@ -42,8 +42,8 @@ const AuthScreen = ({ navigation }) => {
       <Animation />
 
       <LinearGradient
-        colors={['#390878', '#390878', '#f3f6f9']}
-        start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.2 }}
+        colors={['#390879', '#390879', '#5619b4']}
+        start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 0.8 }}
         style={styles.botao}
       >
         {isAuthenticated
@@ -72,13 +72,13 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: 40,
-    width: 210,
-    height: 65,
+    width: "90%",
+    height: "15%",
 
   },
   titulo: {
     fontSize: 20,
-    padding: 25,
+    padding: 20,
     fontFamily: "MontserratBold",
   },
   texto: {
