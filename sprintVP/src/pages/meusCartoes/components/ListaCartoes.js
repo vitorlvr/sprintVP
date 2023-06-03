@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {MotiView} from 'moti';
+
 import getCards from './GetCards';
 
 import IconVisa from '../assets/logo-visa.png';
@@ -33,7 +35,22 @@ export default function ListaCartoes({ card }) {
     const newCard = cards[cards.length - 1]; // Acessa o cartão mais recente
 
     return (
-      <View style={styles.cartao}>
+      <MotiView 
+      style={styles.cartao}
+      from={{
+        rotateX: '-90deg',
+        opacity: 1
+      }}
+      animate={{
+        rotateX: '0deg',
+        opacity: 1
+      }}
+      transition={{
+        type:'timing',
+        duration: 300,
+        delay: 100,
+      }}
+      >
         <View style={styles.information}>
           <View>
             <Text style={[styles.textoCartao, { fontWeight: 'bold', fontSize: 18 }]}>
@@ -44,16 +61,16 @@ export default function ListaCartoes({ card }) {
           </View>
 
           {newCard.number.charAt(0) === '4' && (
-            <Image source={IconVisa} style={styles.imagemBandeira} />
+            <Image source={IconVisa} style={{width: "30%", height: "50%",}} />
           )}
           {newCard.number.charAt(0) === '5' && (
-            <Image source={IconMaster} style={styles.imagemBandeira} />
+            <Image source={IconMaster} style={{width: "20%", height: "50%",}} />
           )}
           {newCard.number.charAt(0) === '6' && (
-            <Image source={IconElo} style={styles.imagemBandeira} />
+            <Image source={IconElo} style={{width: "30%", height: "40%",}} />
           )}
         </View>
-      </View>
+      </MotiView>
     );
   };
 
@@ -64,11 +81,33 @@ export default function ListaCartoes({ card }) {
   };
 
   return (
-    <View>
+    <MotiView
+      from={{
+        translateY: 1000
+      }}
+      animate={{
+        translateY: 0
+      }}
+      transition={{
+        type: 'timing',
+        duration: 500,
+        delay: 300,
+      }}
+    >
       <TouchableOpacity onPress={handleCliqueVisa} style={styles.button}>
-        <MaterialCommunityIcons name="credit-card-lock" size={30} color={'#460fc9'} />
+        {card && card.number && card.number.charAt(0) === '4' && (
+          <Image source={IconVisa} style={{width: 50, height: 40}} />
+        )}
+        {card && card.number && card.number.charAt(0) === '5' && (
+          <Image source={IconMaster} style={{width: 40, height: 40}} />
+        )}
+        {card && card.number && card.number.charAt(0) === '6' && (
+          <Image source={IconElo} style={{width: 40, height: 40}} />
+        )}
         <View style={styles.content}>
-          <Text style={styles.textoBotao}>Visa **** {(cards.number && cards.number.slice(-4)) || ''}</Text>
+        <Text style={styles.textoBotao}>
+          {card.number ? '**** **** **** ' + card.number.substring(card.number.length - 4) : ''}
+        </Text>
           <Text style={styles.descricaoCartao}>Em até 12x.</Text>
         </View>
         <MaterialCommunityIcons name="chevron-down" size={24} color="#42007F" />
@@ -77,7 +116,7 @@ export default function ListaCartoes({ card }) {
       {exibirCampos && (
         renderNewCard()
       )}
-    </View>
+    </MotiView>
   );
 }
 
