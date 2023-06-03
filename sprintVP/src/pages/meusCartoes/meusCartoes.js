@@ -28,11 +28,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#f3f6f9",
-    },
-    main: {
         alignItems: "center",
         justifyContent: "center",
-        paddingVertical: 8,
+    },
+    main: {
         paddingHorizontal: 16,
     },
     titulo: {
