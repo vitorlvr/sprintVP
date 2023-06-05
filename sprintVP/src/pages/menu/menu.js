@@ -29,10 +29,10 @@ const ProfilePosts = () => {
         <Image
           style={styles.userPhoto}
           contentFit="cover"
-          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs46fIKd8hYeUZRJ4Q9rFA016EVkt4NhF_lCzkBLFhdQ&s' }}
+          source={require("../../../assets/imgUser.png")}
         />
         <Text style={styles.userName}>
-          Ednaldo Pereira
+          Igor Max
         </Text>
       </LinearGradient>
       <ScrollView style={styles.confMenu}>
