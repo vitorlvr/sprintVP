@@ -41,7 +41,9 @@
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.20.0",
     "react-native-svg": "^12.1.1",
-    "victory-native": "*"
+    "victory-native": "*",
+    "expo-barcode-scanner": "~12.3.2",
+    "expo-permissions": "~14.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -1,20 +1,32 @@
-import React from "react";
+import {useState} from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Scanner from "./Scanner";
 
 export default function Actions() {
+  const [showScanner, setShowScanner] = useState(false);
+
+  const handlePress = () => {
+    setShowScanner(true);
+    return(
+      <View>
+        <Scanner />
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <Ionicons name="car-sharp" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Multas, IPVA e outros</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <MaterialCommunityIcons name="barcode-scan" size={45} color='rgb(66, 0, 127)' />
           </View>
@@ -22,13 +34,13 @@ export default function Actions() {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <Ionicons name="water-sharp" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Água, Luz e Internet</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <Ionicons name="school" size={45} color='rgb(66, 0, 127)' />
           </View>
@@ -36,19 +48,20 @@ export default function Actions() {
         </TouchableOpacity>
       </View>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <FontAwesome name="bank" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Impostos de Secretaria de Fazenda</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
+        <TouchableOpacity style={styles.actionButton} onPress={handlePress}>
           <View style={styles.areaButton}>
             <MaterialCommunityIcons name="home-city" size={45} color='rgb(66, 0, 127)' />
           </View>
           <Text style={styles.labelButton}>Condomínio e Aluguel</Text>
         </TouchableOpacity>
       </View>
+      {showScanner && <Scanner />}
     </View>
   );
 }
