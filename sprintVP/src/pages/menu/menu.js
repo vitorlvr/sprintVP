@@ -39,7 +39,7 @@ const ProfilePosts = () => {
           transition={{
             type:'timing',
             duration: 800,
-            delay: 300,
+            delay: 200,
           }}
         >
           <Image
@@ -61,7 +61,7 @@ const ProfilePosts = () => {
           transition={{
             type:'timing',
             duration: 800,
-            delay: 300,
+            delay: 200,
           }}
         >
           <Text style={styles.userName}>
@@ -86,7 +86,7 @@ const ProfilePosts = () => {
         transition={{
           type:'timing',
           duration: 1000,
-          delay: 600,
+          delay: 300,
         }}
       >
         <ScrollView style={styles.confMenu}>

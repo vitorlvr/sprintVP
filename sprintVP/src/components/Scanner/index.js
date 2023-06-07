@@ -1,38 +1,34 @@
-import {StatusBar} from 'expo-status-bar';
-import React from 'react';
-import { Button, StyleSheet, View, Modal } from 'react-native';
-
+import React, { useState, useEffect } from 'react';
+import { Text, View, StyleSheet, Button, Modal } from 'react-native';
 import CodeBarScanner from './components/CodeBarScanner';
 
 export default function Scanner() {
-    const [modalVisible, setModalVisible] = React.useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
-    return (
-        <View style={styles.container}>
-            <Modal
-                visible={modalVisible}
-                transparent={true}
-                animation='fade'
-                onRequestClose={() => setModalVisible(false)}
-            >
-                <View style={styles.modal}>
-                    <CodeBarScanner />
-                    <Button title='Fechar Modal' onPress={() => setModalVisible(false)} />
-                </View>
-            </Modal>
+  useEffect(() => {
+    setModalVisible(true);
+  }, []);
 
-            <Button title='Scan' onPress={() => setModalVisible(true)}/>
+  return (
+    <View style={styles.container}>
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+        animation='fade'
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modal}>
+          <CodeBarScanner />
+          <Button title='Fechar Scanner' onPress={() => setModalVisible(false)} />
         </View>
-    );
+      </Modal>
+
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    
     modal: {
         flex: 1,
         alignItems: 'center',
