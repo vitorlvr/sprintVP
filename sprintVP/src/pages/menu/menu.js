@@ -3,6 +3,7 @@ import { StyleSheet, View, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { NativeBaseProvider, Switch, Text, ScrollView } from 'native-base';
 import { ListItem } from '@rneui/themed';
+import { MotiView } from 'moti';
 
 const ProfilePosts = () => {
   return (
@@ -26,68 +27,123 @@ const ProfilePosts = () => {
             source={require("../../../assets/iconx.png")}
           />
         </View>
-        <Image
-          style={styles.userPhoto}
-          contentFit="cover"
-          source={require("../../../assets/imgUser.png")}
-        />
-        <Text style={styles.userName}>
-          Igor Max
-        </Text>
+        <MotiView
+          from={{
+            translateY: -1000,
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            translateY: 0
+          }}
+          transition={{
+            type:'timing',
+            duration: 800,
+            delay: 300,
+          }}
+        >
+          <Image
+            style={styles.userPhoto}
+            contentFit="cover"
+            source={require("../../../assets/imgUser.png")}
+          />
+        </MotiView>
+       
+        <MotiView
+          from={{
+            translateX: -1000,
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            translateX: 0,
+          }}
+          transition={{
+            type:'timing',
+            duration: 800,
+            delay: 300,
+          }}
+        >
+          <Text style={styles.userName}>
+            Igor Max
+          </Text>
+          <Text style={styles.userEmail}>
+            igormaxnunes@gmail.com
+          </Text>
+        </MotiView>
+
       </LinearGradient>
-      <ScrollView style={styles.confMenu}>
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>Modo noturno</ListItem.Title>
-          </ListItem.Content>
-          <Switch
-            style={styles.switchButton}
-            thumbColor="#6600C7"
-            trackColor={{
-              false: '#6600C7',
-              true: '#1ccbcb',
-            }}
-          />
-        </ListItem>
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>Autenticação de dois fatores</ListItem.Title>
-          </ListItem.Content>
-          <Switch
-            style={styles.switchButton}
-            thumbColor="#6600C7"
-            trackColor={{
-              false: '#6600C7',
-              true: '#1ccbcb',
-            }}
-          />
-        </ListItem>
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>Notificações</ListItem.Title>
-          </ListItem.Content>
-          <Switch
-            style={styles.switchButton}
-            thumbColor="#6600C7"
-            trackColor={{
-              false: '#6600C7',
-              true: '#1ccbcb',
-            }}
-          />
-        </ListItem>
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>Resgate sua senha</ListItem.Title>
-          </ListItem.Content>
-          <ListItem.Chevron />
-        </ListItem>
-        <ListItem bottomDivider>
-          <ListItem.Content>
-            <ListItem.Title>Entre em contato (se conseguir)</ListItem.Title>
-          </ListItem.Content>
-          <ListItem.Chevron />
-        </ListItem>
-      </ScrollView>
+
+      <MotiView
+        from={{
+          translateY: 1000,
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          translateY: 0
+        }}
+        transition={{
+          type:'timing',
+          duration: 1000,
+          delay: 600,
+        }}
+      >
+        <ScrollView style={styles.confMenu}>
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>Modo noturno</ListItem.Title>
+            </ListItem.Content>
+            <Switch
+              style={styles.switchButton}
+              thumbColor="#6600C7"
+              trackColor={{
+                false: '#6600C7',
+                true: '#1ccbcb',
+              }}
+            />
+          </ListItem>
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>Autenticação de dois fatores</ListItem.Title>
+            </ListItem.Content>
+            <Switch
+              style={styles.switchButton}
+              thumbColor="#6600C7"
+              trackColor={{
+                false: '#6600C7',
+                true: '#1ccbcb',
+              }}
+            />
+          </ListItem>
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>Notificações</ListItem.Title>
+            </ListItem.Content>
+            <Switch
+              style={styles.switchButton}
+              thumbColor="#6600C7"
+              trackColor={{
+                false: '#6600C7',
+                true: '#1ccbcb',
+              }}
+            />
+          </ListItem>
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>Resgate sua senha</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+          <ListItem bottomDivider>
+            <ListItem.Content>
+              <ListItem.Title>Entre em contato (se conseguir)</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+        </ScrollView>
+      </MotiView>
+      
     </NativeBaseProvider>
   );
 };
@@ -102,8 +158,8 @@ const styles = StyleSheet.create({
   logout: {
     color: "#fff",
     fontWeight: "500",
-    fontSize: 16,
-    left: 12,
+    fontSize: 14,
+    left: 20,
   },
   profile: {
     fontWeight: "600",
@@ -127,11 +183,11 @@ const styles = StyleSheet.create({
   settings: {
     color: "#fff",
     fontWeight: "500",
-    fontSize: 16,
-    right: 12,
+    fontSize: 14,
+    right: 20,
   },
   pageHeader: {
-    height: 320,
+    height: 370,
     shadowOffset: {
       width: 5,
       height: 5,
@@ -149,7 +205,7 @@ const styles = StyleSheet.create({
     borderRadius: 82.5,
     borderColor: "#fff",
     borderWidth: 2,
-    marginTop: 20,
+    marginVertical: 20,
   },
   userInfos: {
     width: "100%",
@@ -163,11 +219,16 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     zIndex: 999,
   },
+  userEmail: {
+    fontSize: 18,
+    color: "#fff",
+    textAlign: "center",
+  },
   switchButton: {
     alignItems: 'flex-end'
   },
   confMenu: {
-    backgroundColor: '##f3f6f9',
+    backgroundColor: '#f3f6f9',
   },
 });
 
